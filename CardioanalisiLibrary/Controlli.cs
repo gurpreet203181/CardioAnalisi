@@ -34,5 +34,32 @@ namespace CardioanalisiLibrary
             return risultato;
         }
 
+
+        //metodo per controllare frequenza
+        public static int ControlloFrequenza(int frequenza)
+        {
+            int risultato = 0;
+            try
+            {
+                Convert.ToInt32(frequenza);
+                if (frequenza > 0 && frequenza <= 200)
+                {
+                    risultato = 1;
+                }
+                else
+                {
+                    risultato = -1;
+                }
+
+            }
+            catch (Exception)
+            {
+                risultato = -1;
+            }
+
+
+            return risultato;
+        }
+
     }
 }

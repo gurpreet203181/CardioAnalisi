@@ -47,6 +47,25 @@ namespace DataCardio.Test
 
 
         }
+       
+        //punto.2
+        [TestMethod]
+        [DataTestMethod]
+        [DataRow(59, "Bradicardia")]
+        [DataRow(60, "Normale")]
+        [DataRow(100, "Normale")]
+        [DataRow(87, "Normale")]
+        [DataRow(120, "Tachicardia")]
+        [DataRow(201, "-1")]
+        public void TestMethodFreqCardiacaRiposo(int BattitiAlMinuto, string valoreFrequenza)
+        {
+            string risposta_attesa = valoreFrequenza;
+
+            string risposta = CardioanalisiLibrary.DataCardio.FreqCardiacaRiposo(BattitiAlMinuto);
+
+            Assert.AreEqual(risposta_attesa, risposta);
+
+        }
 
 
 

@@ -55,6 +55,38 @@ namespace CardioanalisiLibrary
             return frequenzaMax;
         }
 
+        //punto.2
+
+        //Metodo che permetta di interpretare i valori di frequenza cardiaca a riposo
+        public static string FreqCardiacaRiposo(int BattitiAlMinuto)
+        {
+            string valoreFrequenza = "";
+            int ControlloFrequenza = Controlli.ControlloFrequenza(BattitiAlMinuto);//Richiamo il class controlli e metodo controlloFrequenza per fare controlli sull frequenza inserita
+            if (ControlloFrequenza != -1)
+            {
+                if (BattitiAlMinuto < 60)
+                {
+                    valoreFrequenza = "Bradicardia";
+
+                }
+                else if (BattitiAlMinuto >= 60 && BattitiAlMinuto <= 100)
+                {
+                    valoreFrequenza = "Normale";
+
+
+                }
+                else if (BattitiAlMinuto > 100)
+                {
+                    valoreFrequenza = "Tachicardia";
+                }
+            }
+            else
+            {
+                valoreFrequenza = "-1";
+            }
+            return valoreFrequenza;
+        }
+
 
 
 
