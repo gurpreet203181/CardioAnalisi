@@ -102,7 +102,57 @@ namespace DataCardio.Test
 
 
         }
+        //punto.4
+        [TestMethod]
+        [DataTestMethod]
+        [DataRow(2, 72, 130)]
+        [DataRow(2.5, 80, 180)]
+        [DataRow(-3, 80, -1)]
+        [DataRow(3, -80, -1)]
+        [DataRow(-3, -80, -1)]
+        [DataRow(0, 0, -1)]
+        [DataRow(0, 80, 0)]
+        [DataRow(0, -80, -1)]
+        [DataRow(3, 0, -1)]
+        [DataRow(-3, 0, -1)]
 
+        public void TestMethodSpesaEnergeticaCorsa(double KmPercorsi, double peso, double SpesaEnergeticaCorsa)
+        {
+            double risposta_attesa = SpesaEnergeticaCorsa;
+
+            double risposta = CardioanalisiLibrary.DataCardio.SpesaEnergeticaCorsa(KmPercorsi, peso);
+
+            Assert.AreEqual(risposta_attesa, risposta);
+
+
+
+        }
+        [TestMethod]
+        [DataTestMethod]
+        [DataRow(3, 70, 105)]
+        [DataRow(2.5, 80, 100)]
+        [DataRow(-3, 80, -1)]
+        [DataRow(3, -80, -1)]
+        [DataRow(-3, -80, -1)]
+        [DataRow(0, 0, -1)]
+        [DataRow(0, 80, 0)]
+        [DataRow(0, -80, -1)]
+        [DataRow(3, 0, -1)]
+        [DataRow(-3, 0, -1)]
+
+
+
+        public void TestMethodSpesaEnergeticaCamminata(double KmPercorsi, double peso, double SpesaEnergeticaCamminata)
+        {
+            double risposta_attesa = SpesaEnergeticaCamminata;
+
+            double risposta = CardioanalisiLibrary.DataCardio.SpesaEnergeticaCamminata(KmPercorsi, peso);
+
+            Assert.AreEqual(risposta_attesa, risposta);
+
+
+
+        }
 
     }
 

@@ -144,6 +144,52 @@ namespace CardioanalisiLibrary
 
 
 
+        //Punto.4
+        //metodo che permetta di calcolare la spesa energetica che si effettua in caso di corsa
+        public static double SpesaEnergeticaCorsa(double KmPercorsi, double peso)
+        {
+            double SpesaEnergetica = 0;
+
+            double ControlloPeso = Controlli.ControlloPeso(peso);//Richiamo il class controlli e metodo controlloPeso per fare controlli sull peso inserita
+            double ControlloKmPercorsi = Controlli.ControlloKmPercorsi(KmPercorsi);//Richiamo il class controlli e metodo controlloKmPercorsi per fare controlli sull Km percorsi inseriti
+
+
+            if (ControlloPeso != -1 && ControlloKmPercorsi != -1)
+            {
+                SpesaEnergetica = Math.Round(0.9 * KmPercorsi * peso);
+            }
+            else
+            {
+                SpesaEnergetica = -1;
+            }
+
+            return SpesaEnergetica;
+        }
+
+        //metodo che permetta di calcolare la spesa energetica che si effettua in caso di camminata
+        public static double SpesaEnergeticaCamminata(double KmPercorsi, double peso)
+        {
+            double SpesaEnergetica = 0;
+
+            double ControlloPeso = Controlli.ControlloPeso(peso);//Richiamo il class controlli e metodo controlloPeso per fare controlli sull peso inserita
+            double ControlloKmPercorsi = Controlli.ControlloKmPercorsi(KmPercorsi);//Richiamo il class controlli e metodo controlloKmPercorsi per fare controlli sull Km percorsi inseriti
+
+
+
+            if (ControlloPeso != -1 && ControlloKmPercorsi != -1)
+            {
+                SpesaEnergetica = Math.Round(0.50 * KmPercorsi * peso);
+            }
+            else
+            {
+                SpesaEnergetica = -1;
+            }
+
+            return SpesaEnergetica;
+        }
+
+
+
 
 
     }
