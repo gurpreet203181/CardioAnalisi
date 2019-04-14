@@ -67,7 +67,41 @@ namespace DataCardio.Test
 
         }
 
+        //punto.3
+        [TestMethod]
+        [DataTestMethod]
+        [DataRow(17, 72, 180, 15, 273)]
+        [DataRow(0, 0, 0, 0, -1)]
+        [DataRow(-43, -78, -170, -15, -1)]
 
+        public void TestMethodCalorieBruciateUomo(int età, double peso, int frequenza, double durata, int CalorieBruciate)
+        {
+            double risposta_attesa = CalorieBruciate;
+
+            double risposta = CardioanalisiLibrary.DataCardio.CalorieBruciateUomo(età, peso, frequenza, durata);
+
+            Assert.AreEqual(risposta_attesa, risposta);
+
+        }
+        [TestMethod]
+
+
+        [DataTestMethod]
+        [DataRow(17, 72, 180, 15, 252)]
+        [DataRow(0, 0, 0, 0, -1)]
+        [DataRow(-43, -78, -170, -15, -1)]
+
+        public void TestMethodCalorieBruciateDonna(int età, double peso, int frequenza, double durata, int CalorieBruciate)
+        {
+            double risposta_attesa = CalorieBruciate;
+
+            double risposta = CardioanalisiLibrary.DataCardio.CalorieBruciateDonna(età, peso, frequenza, durata);
+
+            Assert.AreEqual(risposta_attesa, risposta);
+
+
+
+        }
 
 
     }
