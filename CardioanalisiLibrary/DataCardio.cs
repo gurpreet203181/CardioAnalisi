@@ -144,7 +144,7 @@ namespace CardioanalisiLibrary
 
 
 
-        //Punto.4
+        //Punto. 4
         //metodo che permetta di calcolare la spesa energetica che si effettua in caso di corsa
         public static double SpesaEnergeticaCorsa(double KmPercorsi, double peso)
         {
