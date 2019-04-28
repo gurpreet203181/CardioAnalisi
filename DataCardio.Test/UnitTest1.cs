@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DataCardio.Test
@@ -7,14 +9,15 @@ namespace DataCardio.Test
     public class UnitTest1
     {
 
-        //punto.1   TestMethodFrequenzaMin
+        //punto.1   TestMethod Frequenza Min
         [TestMethod]
         [DataTestMethod]
         [DataRow(20, 140)]
         [DataRow(33, 131)]
         [DataRow(0, -1)]
         [DataRow(-3, -1)]
-        [DataRow(200, -1)]
+        [DataRow(220, -1)]
+        [DataRow(200, 14)]
 
 
         public void TestMethodFrequenzaMin(int età, int frequenzaMin)
@@ -33,9 +36,10 @@ namespace DataCardio.Test
         [DataRow(33, 168)]
         [DataRow(0, -1)]
         [DataRow(-3, -1)]
-        [DataRow(200, -1)]
+        [DataRow(220, -1)]
+        [DataRow(200, 18)]
 
-        //punto.1 TestMethodFrequenzaMax
+        //punto.1 TestMethod Frequenza Max
         public void TestMethodFrequenzaMax(int età, int frequenzaMax)
         {
             double risposta_attesa = frequenzaMax;
@@ -47,8 +51,8 @@ namespace DataCardio.Test
 
 
         }
-       
-        //punto.2
+
+        //punto.2 TestMethod FreqCardiaca Riposo
         [TestMethod]
         [DataTestMethod]
         [DataRow(59, "Bradicardia")]
@@ -56,7 +60,7 @@ namespace DataCardio.Test
         [DataRow(100, "Normale")]
         [DataRow(87, "Normale")]
         [DataRow(120, "Tachicardia")]
-        [DataRow(201, "-1")]
+        [DataRow(220, "-1")]
         public void TestMethodFreqCardiacaRiposo(int BattitiAlMinuto, string valoreFrequenza)
         {
             string risposta_attesa = valoreFrequenza;
@@ -67,7 +71,7 @@ namespace DataCardio.Test
 
         }
 
-        //punto.3
+        //punto.3 TestMethod Calorie Bruciate Uomo
         [TestMethod]
         [DataTestMethod]
         [DataRow(17, 72, 180, 15, 273)]
@@ -85,7 +89,7 @@ namespace DataCardio.Test
         }
         [TestMethod]
 
-
+        //punto.3  TestMethod Calorie Bruciate Donna
         [DataTestMethod]
         [DataRow(17, 72, 180, 15, 252)]
         [DataRow(0, 0, 0, 0, -1)]
@@ -102,7 +106,9 @@ namespace DataCardio.Test
 
 
         }
-        //punto.4
+
+
+        //punto.4 TestMethod Spesa Energetica Corsa
         [TestMethod]
         [DataTestMethod]
         [DataRow(2, 72, 130)]
@@ -127,6 +133,9 @@ namespace DataCardio.Test
 
 
         }
+
+
+        //punto.4 TestMethod Spesa Energetica Camminata
         [TestMethod]
         [DataTestMethod]
         [DataRow(3, 70, 105)]
@@ -153,6 +162,62 @@ namespace DataCardio.Test
 
 
         }
+
+        //Punto.5A TestMethod Media Giornaliera Battiti
+
+        [TestMethod]
+        
+        public void TestMethodMediaGiornalieraBattiti_1()
+        {
+            List<int> ListaFrequenzaQuotidiano = new List<int>() {202,199,200,189,193 };
+            double risposta_attesa =196.6;
+           
+            double risposta = CardioanalisiLibrary.DataCardio.MediaGiornalieraBattiti (ListaFrequenzaQuotidiano);
+
+            Assert.AreEqual(risposta_attesa, risposta);
+
+
+        }
+        [TestMethod]
+
+        public void TestMethodMediaGiornalieraBattiti1_2()
+        {
+            List<int> ListaFrequenzaQuotidiano = new List<int>() { 0, 0, 0, 0 };
+            double risposta_attesa = -1;
+
+            double risposta = CardioanalisiLibrary.DataCardio.MediaGiornalieraBattiti(ListaFrequenzaQuotidiano);
+
+            Assert.AreEqual(risposta_attesa, risposta);
+
+
+        }
+        [TestMethod]
+
+        public void TestMethodMediaGiornalieraBattiti1_3()
+        {
+            List<int> ListaFrequenzaQuotidiano = new List<int>() { 202, -199, 200, -2, 193 };
+            double risposta_attesa = -1;
+
+            double risposta = CardioanalisiLibrary.DataCardio.MediaGiornalieraBattiti(ListaFrequenzaQuotidiano);
+
+            Assert.AreEqual(risposta_attesa, risposta);
+
+
+        }
+        [TestMethod]
+        public void TestMethodMediaGiornalieraBattiti_4()
+        {
+            List<int> ListaFrequenzaQuotidiano = new List<int>() { 220, 1994, 200, 189, 193 };
+            double risposta_attesa = -1;
+
+            double risposta = CardioanalisiLibrary.DataCardio.MediaGiornalieraBattiti(ListaFrequenzaQuotidiano);
+
+            Assert.AreEqual(risposta_attesa, risposta);
+
+
+        }
+
+        
 
     }
 

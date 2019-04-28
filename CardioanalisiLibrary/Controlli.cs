@@ -15,7 +15,7 @@ namespace CardioanalisiLibrary
             try
             {
                 Convert.ToInt32(età);
-                if (età > 0 && età <= 120)
+                if (età > 0 && età <= 200)
                 {
                     risultato = 1;
                 }
@@ -42,7 +42,7 @@ namespace CardioanalisiLibrary
             try
             {
                 Convert.ToInt32(frequenza);
-                if (frequenza > 0 && frequenza <= 200)
+                if (frequenza > 0 && frequenza < 220)
                 {
                     risultato = 1;
                 }

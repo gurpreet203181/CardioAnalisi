@@ -189,8 +189,35 @@ namespace CardioanalisiLibrary
         }
 
 
+        //Punto.5A
+        //metodo che permetta di calcolare La media giornaliera dei battiti
+
+        public static double MediaGiornalieraBattiti(List<int> ListaFrequenzaQuotidiano)//Come utente parametro devi dare una lista di frequenza cardiaca di tipo int
+        {
+            double risultato = 0;
+            bool flag = true;
+
+            for (int i = 0; i < ListaFrequenzaQuotidiano.Count; i++)
+            {
+                int controlloFreq = Controlli.ControlloFrequenza(ListaFrequenzaQuotidiano[i]);//Richiamo il class controlli e metodo controlloFrequenza per fare controlli sull frequenza inserita
+                if (controlloFreq == -1)
+                {
+                    risultato = -1;
+                    flag = false;
+
+                }
+                else if (flag)
+                {
+                    risultato = ListaFrequenzaQuotidiano.Average();
+                }
+
+            }
 
 
+            return risultato;
+        }
 
+
+       
     }
 }
