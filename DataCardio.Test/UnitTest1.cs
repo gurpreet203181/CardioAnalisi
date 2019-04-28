@@ -217,7 +217,26 @@ namespace DataCardio.Test
 
         }
 
-        
+        //Punto.5B TestMethod IlBattitoCardiaco_A_Riposo
+        [TestMethod]
+        [DataTestMethod]
+        [DataRow(59, "Bradicardia")]
+        [DataRow(60, "Normale")]
+        [DataRow(100, "Normale")]
+        [DataRow(87, "Normale")]
+        [DataRow(120, "Tachicardia")]
+        [DataRow(220, "-1")]
+        public void TestMethodBattitoCardiaco_A_Riposo(int BattitiAlMinuto, string valoreFrequenza)
+        {
+            string risposta_attesa = valoreFrequenza;
+
+            string risposta = CardioanalisiLibrary.DataCardio.FreqCardiacaRiposo(BattitiAlMinuto);
+
+            Assert.AreEqual(risposta_attesa, risposta);
+
+        }
+
+
 
     }
 

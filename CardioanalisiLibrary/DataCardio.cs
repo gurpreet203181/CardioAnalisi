@@ -216,8 +216,15 @@ namespace CardioanalisiLibrary
 
             return risultato;
         }
+        //Punto.5B Metodo che permetta di interpretare i valori di frequenza cardiaca a riposo
+        public static string BattitoCardiaco_A_Riposo(int BattitiAlMinuto)
+        {
+            string risultato = FreqCardiacaRiposo(BattitiAlMinuto);//Richiamo metodo FreqCardiacaRiposo che interpretare i valori di frequenza cardiaca a riposo
+
+            return risultato;
+        }
 
 
-       
+
     }
 }
