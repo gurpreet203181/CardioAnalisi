@@ -224,7 +224,34 @@ namespace CardioanalisiLibrary
             return risultato;
         }
 
+        //Punto.5D
+
+       public static List<int> OrdineCrescente_Dei_Battiti(List<int> ListaFrequenzaDuranteGiornata)//Come utente parametro devi dare una lista di frequenza cardiaca di tipo int
+       {
+            List<int> ListaOrdineCrescente = ListaFrequenzaDuranteGiornata;
+          bool flag = true;
+
+            for (int i = 0; i < ListaFrequenzaDuranteGiornata.Count; i++)
+            {
+                int controlloFreq = Controlli.ControlloFrequenza(ListaFrequenzaDuranteGiornata[i]);//Richiamo il class controlli e metodo controlloFrequenza per fare controlli sull frequenza inserita
+                if (controlloFreq == -1)
+                {
+                    ListaFrequenzaDuranteGiornata.Clear();
+                    ListaFrequenzaDuranteGiornata.Add(-1);
+                        flag = false;
+
+                }
+                else if (flag)
+                {
+                    ListaOrdineCrescente.Sort();
+                }
+
+            }
 
 
+           
+            return ListaOrdineCrescente;
+       }
+       
     }
 }

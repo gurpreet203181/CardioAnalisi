@@ -236,7 +236,54 @@ namespace DataCardio.Test
 
         }
 
+        //Punto.5D
+        [TestMethod]
+        public void OrdineCrescente_Dei_Battiti_1()
+        {
+            List<int> ListaFrequenzaDuranteGiornata = new List<int>() { 202, 199, 200, 189, 193 };
+            List<int> risposta_attesa = new List<int>() {189,193,199,200,202 };
 
+            List<int> risposta = CardioanalisiLibrary.DataCardio.OrdineCrescente_Dei_Battiti(ListaFrequenzaDuranteGiornata);
+
+            CollectionAssert.AreEqual(risposta_attesa, risposta);
+
+
+        }
+        [TestMethod]
+        public void OrdineCrescente_Dei_Battiti_2()
+        {
+            List<int> ListaFrequenzaDuranteGiornata = new List<int>() { 0, 0, 0, 0, 0 };
+            List<int> risposta_attesa = new List<int>() { -1};
+
+            List<int> risposta = CardioanalisiLibrary.DataCardio.OrdineCrescente_Dei_Battiti(ListaFrequenzaDuranteGiornata);
+
+            CollectionAssert.AreEqual(risposta_attesa, risposta);
+
+
+        }
+        [TestMethod]
+        public void OrdineCrescente_Dei_Battiti_3()
+        {
+            List<int> ListaFrequenzaDuranteGiornata = new List<int>() { 202, -199, 200, -2, 193 };
+            List<int> risposta_attesa = new List<int>() { -1 };
+
+            List<int> risposta = CardioanalisiLibrary.DataCardio.OrdineCrescente_Dei_Battiti(ListaFrequenzaDuranteGiornata);
+
+            CollectionAssert.AreEqual(risposta_attesa, risposta);
+
+
+        }
+        public void OrdineCrescente_Dei_Battiti_4()
+        {
+            List<int> ListaFrequenzaDuranteGiornata = new List<int>() {  };
+            List<int> risposta_attesa = new List<int>() { -1 };
+
+            List<int> risposta = CardioanalisiLibrary.DataCardio.OrdineCrescente_Dei_Battiti(ListaFrequenzaDuranteGiornata);
+
+            CollectionAssert.AreEqual(risposta_attesa, risposta);
+
+
+        }
 
     }
 
