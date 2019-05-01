@@ -139,7 +139,31 @@ namespace CardioanalisiLibrary
 
             return risultato;
         }
+        //metodo per controllare Tempo tra due battiti
+        public static int ControlloTempoTraDueBattiti(double TempoTraDueBattiti)
+        {
+            int risultato = 0;
+            try
+            {
+                Convert.ToDouble(TempoTraDueBattiti);
+                if (TempoTraDueBattiti >= 0.1 && TempoTraDueBattiti <= 2)
+                {
+                    risultato = 1;
+                }
+                else
+                {
+                    risultato = -1;
+                }
 
+            }
+            catch (Exception)
+            {
+                risultato = -1;
+            }
+
+
+            return risultato;
+        }
 
     }
 }

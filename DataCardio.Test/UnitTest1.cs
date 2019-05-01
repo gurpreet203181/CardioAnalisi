@@ -236,6 +236,47 @@ namespace DataCardio.Test
 
         }
 
+        //Punto 5c
+        [TestMethod]
+        public void TestHRV1()
+        {
+
+            double risposta_attesa = 1.93;
+            List<double> TempoTraDueBattiti = new List<double> { 0.8, 1.2, 1.0, 0.6, 0.9 };
+            double frequenza = CardioanalisiLibrary.DataCardio.HRV(TempoTraDueBattiti);
+            Assert.AreEqual(risposta_attesa, frequenza);
+        }
+
+        [TestMethod]
+        public void TestHRV2()
+        {
+
+            double risposta_attesa = -1;
+            List<double> tempitempotraduebatti = new List<double> { 8, 1.2, 2.2, 0.6, 0.9 };
+            double frequenza = CardioanalisiLibrary.DataCardio.HRV(tempitempotraduebatti);
+            Assert.AreEqual(risposta_attesa, frequenza);
+        }
+        [TestMethod]
+        public void TestHRV3()
+        {
+
+            double risposta_attesa = -1;
+            List<double> tempitempotraduebatti = new List<double> { 0.8, 1.2, -1, 0.6, 0.9 };
+            double frequenza = CardioanalisiLibrary.DataCardio.HRV(tempitempotraduebatti);
+            Assert.AreEqual(risposta_attesa, frequenza);
+        }
+        [TestMethod]
+        public void TestHRV4()
+        {
+
+            double risposta_attesa = -1;
+            List<double> tempitempotraduebatti = new List<double> { 0, 1.2, -1, 0.6, 0.9 };
+            double frequenza = CardioanalisiLibrary.DataCardio.HRV(tempitempotraduebatti);
+            Assert.AreEqual(risposta_attesa, frequenza);
+        }
+
+
+
         //Punto.5D
         [TestMethod]
         public void OrdineCrescente_Dei_Battiti_1()

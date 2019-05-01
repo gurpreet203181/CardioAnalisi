@@ -223,10 +223,39 @@ namespace CardioanalisiLibrary
 
             return risultato;
         }
+        //Punto.5C
+
+        public static double HRV(List<double> TempoTraDueBattiti)
+        {
+            double frequenza = 0;
+            double moltiplicazione = TempoTraDueBattiti[0];
+            bool flag = true;
+
+            for (int i = 1; i < TempoTraDueBattiti.Count; i++)
+            {
+                int controloTempoBattiti = Controlli.ControlloTempoTraDueBattiti(TempoTraDueBattiti[i]);
+
+                if (controloTempoBattiti == -1)
+                {
+                    frequenza = -1;
+
+                    flag = false;
+                }
+                else if (flag)
+                {
+                    moltiplicazione = moltiplicazione * TempoTraDueBattiti[i];
+                    frequenza = 1 / moltiplicazione;
+                    frequenza = Math.Round(frequenza, 2);
+                }
+
+            }
+
+            return frequenza;
+        }
 
         //Punto.5D
 
-       public static List<int> OrdineCrescente_Dei_Battiti(List<int> ListaFrequenzaDuranteGiornata)//Come utente parametro devi dare una lista di frequenza cardiaca di tipo int
+        public static List<int> OrdineCrescente_Dei_Battiti(List<int> ListaFrequenzaDuranteGiornata)//Come utente parametro devi dare una lista di frequenza cardiaca di tipo int
        {
             List<int> ListaOrdineCrescente = ListaFrequenzaDuranteGiornata;
           bool flag = true;
