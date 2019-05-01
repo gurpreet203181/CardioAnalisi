@@ -280,7 +280,16 @@ namespace CardioanalisiLibrary
 
            
             return ListaOrdineCrescente;
-       }
-       
+        }
+
+        //Punto 6
+        public double Gravidanza()
+        {
+            double battiti = 0;
+            battiti = 75 + (75 * 0.09);
+            return battiti;
+        }
+
+
     }
 }
