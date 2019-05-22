@@ -24,7 +24,7 @@ namespace CardioanalisiLibrary
             }
             else
             {
-                frequenzaMin = -1;
+                throw new ArgumentException(età + " non è accettabile", "età");
 
             }
 
